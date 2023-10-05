@@ -37,6 +37,7 @@ import org.eclipse.swt.graphics.Region;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
@@ -998,5 +999,28 @@ public void test_Issue450_NoShellActivateOnSetFocus() {
 			System.getProperties().remove(key);
 		}
 	}
+}
+
+@Test
+public void test_shellBounds() {
+	Composite composite = new Composite(shell, SWT.NONE);
+	shell.setLayout(new FillLayout());
+	shell.setSize(400, 500);
+	shell.open();
+
+	// Shell should match the expected size of (400, 500)
+	Rectangle shellBounds = shell.getBounds();
+	assertEquals("bounds expected to match size", shellBounds.width, 400);
+	assertEquals("bounds expected to match size", shellBounds.height, 500);
+
+	// Usable client area should be smaller (due to window decorations)
+	Rectangle shellClientArea = shell.getClientArea();
+	assertTrue("client area expected smaller than bounds", shellClientArea.width < 400);
+	assertTrue("client area expected smaller than bounds", shellClientArea.height < 500);
+
+	// The composite should take u
+	Rectangle compositeBounds = composite.getBounds();
+	assertEquals("composite expected to take up whole client area", shellClientArea.width, compositeBounds.width);
+	assertEquals("composite expected to take up whole client area", shellClientArea.height, compositeBounds.height);
 }
 }
