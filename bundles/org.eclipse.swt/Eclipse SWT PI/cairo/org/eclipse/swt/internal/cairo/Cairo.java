@@ -291,6 +291,16 @@ public static final native void cairo_set_source_rgba(long cr, double red, doubl
 public static final native void cairo_set_source_surface(long cr, long surface, double x, double y);
 /** @param cr cast=(cairo_t *) */
 public static final native void cairo_set_tolerance(long cr, double tolerance);
+/**
+ * @param cr cast=(cairo_t *)
+ * @param options cast=(const cairo_font_options_t *)
+ */
+public static final native void cairo_set_font_options(long cr, long options);
+/**
+ * @param cr cast=(cairo_t *)
+ * @param options cast=(cairo_font_options_t *)
+ */
+public static final native void cairo_get_font_options(long cr, long options);
 /** @param cr cast=(cairo_t *) */
 public static final native void cairo_show_page(long cr);
 /** @param cr cast=(cairo_t *) */

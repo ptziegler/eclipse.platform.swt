@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2000, 2022 IBM Corporation and others.
+ * Copyright (c) 2000, 2025 IBM Corporation and others.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -1446,6 +1446,12 @@ public long internal_new_GC (GCData data) {
 		SWT.error(SWT.ERROR_INVALID_ARGUMENT);
 	}
 	long gc = Cairo.cairo_create(surface);
+	if (gc != 0) {
+		long options = Cairo.cairo_font_options_create();
+		Cairo.cairo_font_options_set_antialias(options, Cairo.CAIRO_ANTIALIAS_DEFAULT);
+		Cairo.cairo_set_font_options(gc, options);
+		Cairo.cairo_font_options_destroy(options);
+	}
 	if (data != null) {
 		int mask = SWT.LEFT_TO_RIGHT | SWT.RIGHT_TO_LEFT;
 		if ((data.style & mask) == 0) {
