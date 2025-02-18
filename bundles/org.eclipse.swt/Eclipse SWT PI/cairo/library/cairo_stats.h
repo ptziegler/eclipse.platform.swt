@@ -50,6 +50,7 @@ typedef enum {
 	cairo_1get_1current_1point_FUNC,
 	cairo_1get_1fill_1rule_FUNC,
 	cairo_1get_1font_1face_FUNC,
+	cairo_1get_1font_1options_FUNC,
 	cairo_1get_1matrix_FUNC,
 	cairo_1get_1source_FUNC,
 	cairo_1get_1target_FUNC,

@@ -3763,6 +3763,7 @@ public void setTextAntialias(int antialias) {
 	}
 	initCairo();
 	long options = Cairo.cairo_font_options_create();
+	Cairo.cairo_get_font_options(data.cairo, options);
 	Cairo.cairo_font_options_set_antialias(options, mode);
 	if (data.context == 0) createLayout();
 	OS.pango_cairo_context_set_font_options(data.context, options);

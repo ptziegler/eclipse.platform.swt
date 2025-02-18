@@ -260,6 +260,16 @@ JNIEXPORT jlong JNICALL Cairo_NATIVE(cairo_1get_1font_1face)
 }
 #endif
 
+#ifndef NO_cairo_1get_1font_1options
+JNIEXPORT void JNICALL Cairo_NATIVE(cairo_1get_1font_1options)
+	(JNIEnv *env, jclass that, jlong arg0, jlong arg1)
+{
+	Cairo_NATIVE_ENTER(env, that, cairo_1get_1font_1options_FUNC);
+	cairo_get_font_options((cairo_t *)arg0, (cairo_font_options_t *)arg1);
+	Cairo_NATIVE_EXIT(env, that, cairo_1get_1font_1options_FUNC);
+}
+#endif
+
 #ifndef NO_cairo_1get_1matrix
 JNIEXPORT void JNICALL Cairo_NATIVE(cairo_1get_1matrix)
 	(JNIEnv *env, jclass that, jlong arg0, jdoubleArray arg1)
