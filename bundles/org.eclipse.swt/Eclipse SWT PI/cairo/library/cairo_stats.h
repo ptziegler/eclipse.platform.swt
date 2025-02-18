@@ -15,7 +15,7 @@
  *
  * IBM
  * -  Binding to permit interfacing between Cairo and SWT
- * -  Copyright (C) 2005, 2023 IBM Corp.  All Rights Reserved.
+ * -  Copyright (C) 2005, 2025 IBM Corp.  All Rights Reserved.
  *
  * ***** END LICENSE BLOCK ***** */
 
@@ -116,6 +116,7 @@ typedef enum {
 	cairo_1set_1antialias_FUNC,
 	cairo_1set_1dash_FUNC,
 	cairo_1set_1fill_1rule_FUNC,
+	cairo_1set_1font_1options_FUNC,
 	cairo_1set_1font_1size_FUNC,
 	cairo_1set_1line_1cap_FUNC,
 	cairo_1set_1line_1join_FUNC,
