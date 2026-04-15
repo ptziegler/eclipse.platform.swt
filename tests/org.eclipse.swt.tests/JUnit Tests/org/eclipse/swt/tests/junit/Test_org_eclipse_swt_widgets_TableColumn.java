@@ -229,6 +229,14 @@ public void test_setTextLjava_lang_String() {
 	}
 }
 
+@Test
+public void test_getWidth_withTableHeader() {
+	table.setHeaderVisible(true);
+	tableColumn.setWidth(50);
+	shell.setVisible(true);
+	assertEquals(50, tableColumn.getWidth());
+}
+
 /* custom */
 protected TableColumn tableColumn;
 protected Table table;
